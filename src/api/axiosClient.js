@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AppLocalStorage, STORAGE_KEYS } from "../services/AppLocalStorage";
+import { appLocaStorage, STORAGE_KEYS } from "../services/AppLocalStorage";
 
 const baseUrl = import.meta.env.VITE_BASE_URL;
 const axiosClient = axios.create({
@@ -11,7 +11,7 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use(
   (config) => {
-    const token = AppLocalStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
+    const token = appLocaStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
       console.log("token:", token);
