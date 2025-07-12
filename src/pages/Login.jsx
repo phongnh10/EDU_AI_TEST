@@ -1,9 +1,11 @@
 import React from "react";
 
-export default function Support() {
+function Login() {
   return (
     <div className="flex flex-1 h-[70vh] justify-center items-center">
-      Support
+      Login
     </div>
   );
 }
+
+export default Login;

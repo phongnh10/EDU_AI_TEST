@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function PriceRangeFilter({ onChange }) {
   const options = [
-    { label: "Tất cả", value: "" },
+    { label: "Lọc theo giá", value: "" },
     { label: "Dưới 50$", value: { min: null, max: 50 } },
     { label: "50$ - 100$", value: { min: 50, max: 100 } },
     { label: "Trên 100$", value: { min: 100, max: null } },
@@ -12,7 +12,6 @@ export default function PriceRangeFilter({ onChange }) {
 
   const handleChange = (e) => {
     const rawValue = e.target.value;
-
     setSelected(rawValue);
 
     if (rawValue === "") {
@@ -24,28 +23,23 @@ export default function PriceRangeFilter({ onChange }) {
   };
 
   return (
-    <div className="p-4 bg-white shadow-sm space-y-2">
-      <h3 className="text-base font-semibold mb-2">Lọc theo khoảng giá</h3>
-      <div className="flex flex-col gap-2 text-sm">
+    <div className="bg-white shadow-sm ">
+      <select
+        className="w-full h-10 p-2 border border-primary rounded"
+        value={selected}
+        onChange={handleChange}
+      >
         {options.map((opt, idx) => (
-          <label key={idx} className="flex items-center gap-2 cursor-pointer">
-            <input
-              type="radio"
-              name="price-range"
-              value={
-                typeof opt.value === "string" ? "" : JSON.stringify(opt.value)
-              }
-              checked={
-                selected ===
-                (typeof opt.value === "string" ? "" : JSON.stringify(opt.value))
-              }
-              onChange={handleChange}
-              className="accent-primary"
-            />
+          <option
+            key={idx}
+            value={
+              typeof opt.value === "string" ? "" : JSON.stringify(opt.value)
+            }
+          >
             {opt.label}
-          </label>
+          </option>
         ))}
-      </div>
+      </select>
     </div>
   );
 }

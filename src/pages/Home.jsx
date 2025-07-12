@@ -21,8 +21,10 @@ function Home() {
     <div className="flex flex-col flex-1 gap-4 my-4 ">
       <div className="flex flex-col gap-4  bg-white p-8 shadow-2xl">
         <h4 className="text-2xl font-bold">Chào mừng bạn đến với Edu AI!</h4>
+      </div>
 
-        <div className="flex flex-col justify-center items-center gap-4 sm:gap-16 sm:flex-row">
+      <div className=" bg-white p-8 flex gap-4 flex-col shadow-2xl">
+        <div className="flex flex-col sm:flex-row gap-4 items-stretch">
           <SearchBox
             onChange={(keyword) => {
               setKeyword(keyword);
@@ -34,9 +36,6 @@ function Home() {
             }}
           />
         </div>
-      </div>
-
-      <div className=" bg-white p-8 gap-8 shadow-2xl">
         <span className="text-xl text-primary font-bold">Danh mục</span>
         <CategoryList />
       </div>

@@ -7,6 +7,8 @@ import { authApi } from "./api/userApi";
 import News from "./pages/News";
 import Support from "./pages/Support";
 import AboutUs from "./pages/AboutUs";
+import Login from "./pages/Login";
+
 import { appLocalStorage, STORAGE_KEYS } from "./services/AppLocalStorage";
 
 export default function App() {
@@ -39,7 +41,7 @@ export default function App() {
           <Route path="/news" element={<News />} />
           <Route path="/support" element={<Support />} />
           <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/login" element={<AboutUs />} />
+          <Route path="/login" element={<Login />} />
         </Route>
       </Routes>
     </BrowserRouter>

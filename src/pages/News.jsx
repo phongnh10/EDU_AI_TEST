@@ -1,5 +1,7 @@
 import React from "react";
 
 export default function News() {
-  return <div>News</div>;
+  return (
+    <div className="flex flex-1 h-[70vh] justify-center items-center">News</div>
+  );
 }
