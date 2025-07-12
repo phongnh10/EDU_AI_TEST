@@ -7,7 +7,7 @@ import { authApi } from "./api/userApi";
 import News from "./pages/News";
 import Support from "./pages/Support";
 import AboutUs from "./pages/AboutUs";
-import { appLocaStorage } from "./services/AppLocalStorage";
+import { appLocalStorage, STORAGE_KEYS } from "./services/AppLocalStorage";
 
 export default function App() {
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function App() {
       try {
         const res = await authApi.login(data);
         if (res) {
-          appLocaStorage.saveItem(STORAGE_KEYS.ACCESS_TOKEN, res.data.token);
+          appLocalStorage.saveItem(STORAGE_KEYS.ACCESS_TOKEN, res.data.token);
           console.log(
             "Đăng nhập thành công:",
             JSON.stringify(res.data, null, 2)
@@ -34,7 +34,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/news" element={<News />} />
           <Route path="/support" element={<Support />} />

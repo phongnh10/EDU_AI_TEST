@@ -1,6 +1,6 @@
 import { createContext, useState, useCallback, useEffect } from "react";
 import { successNotify, errorNotify } from "../components/toast/Toast";
-import { appLocaStorage } from "../services/AppLocalStorage";
+import { appLocalStorage, STORAGE_KEYS } from "../services/AppLocalStorage";
 
 export const FavoritesContext = createContext();
 
@@ -13,7 +13,7 @@ export const FavoritesProvider = ({ children }) => {
       setLoading(true);
       try {
         const stored =
-          (await AppLocalStorage.getItem(STORAGE_KEYS.FAVORITE)) || [];
+          (await appLocalStorage.getItem(STORAGE_KEYS.FAVORITE)) || [];
         setFavorites(stored);
       } catch (error) {
         console.error("Lỗi khi lấy dữ liệu yêu thích:", error);
@@ -36,7 +36,7 @@ export const FavoritesProvider = ({ children }) => {
         return errorNotify("Sản phẩm đã có trong yêu thích.");
       const updated = [...favorites, item];
       setFavorites(updated);
-      appLocaStorage.saveItem(STORAGE_KEYS.FAVORITE, updated);
+      appLocalStorage.saveItem(STORAGE_KEYS.FAVORITE, updated);
       successNotify("Thêm sản phẩm yêu thích thành công.");
     },
     [favorites, isFavorite]
@@ -46,7 +46,7 @@ export const FavoritesProvider = ({ children }) => {
     (item) => {
       const updated = favorites.filter((fav) => fav._id !== item._id);
       setFavorites(updated);
-      appLocaStorage.saveItem(STORAGE_KEYS.FAVORITE, updated);
+      appLocalStorage.saveItem(STORAGE_KEYS.FAVORITE, updated);
       successNotify("Xoá sản phẩm yêu thích thành công.");
     },
     [favorites]

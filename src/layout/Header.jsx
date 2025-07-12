@@ -6,7 +6,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import LoginButton from "./components/LoginButton";
 
 const navItems = [
-  { path: "/home", label: "Home" },
+  { path: "/", label: "Home" },
   { path: "/favorite", label: "Favorites" },
   { path: "/news", label: "News" },
   { path: "/support", label: "Support" },

@@ -2,7 +2,7 @@ import LoginButton from "./LoginButton";
 import NavItem from "./NavItem";
 
 const navItems = [
-  { path: "/home", label: "Home" },
+  { path: "/", label: "Home" },
   { path: "/favorite", label: "Favorites" },
   { path: "/news", label: "News" },
   { path: "/support", label: "Support" },

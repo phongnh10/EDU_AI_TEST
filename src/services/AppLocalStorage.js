@@ -4,7 +4,7 @@ const STORAGE_KEYS = {
   FAVORITE: "favorite",
 };
 
-const appLocaStorage = {
+const appLocalStorage = {
   saveItem: (key, value) => {
     const stringValue =
       typeof value === "string" ? value : JSON.stringify(value);
@@ -25,4 +25,4 @@ const appLocaStorage = {
   },
 };
 
-export { STORAGE_KEYS, appLocaStorage };
+export { STORAGE_KEYS, appLocalStorage };
