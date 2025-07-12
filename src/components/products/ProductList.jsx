@@ -41,7 +41,7 @@ const ItemProduct = ({ item, isFavorite, toggleFavorite, onViewDetail }) => {
   const check = isFavorite(item);
 
   return (
-    <div className="flex-col flex-1 justify-between items-center relative cursor-pointer border-gray-200 border-1 rounded-xl lg:rounded-none lg:border-0 hover:shadow-xl hover:rounded-2xl p-4">
+    <div className="flex-col flex-1 justify-between items-center shadow-md relative cursor-pointer border-gray-200 border-1 rounded-xl lg:border-0 hover:shadow-xl hover:rounded-2xl p-4">
       <div className="flex justify-end p-4">
         <div onClick={() => toggleFavorite(item)}>
           {check ? (
@@ -52,22 +52,26 @@ const ItemProduct = ({ item, isFavorite, toggleFavorite, onViewDetail }) => {
         </div>
       </div>
 
-      <div className="flex-1">
-        <img src={item.image?.[0]} alt={item.name} />
+      <div className="flex justify-center items-center">
+        <img src={item.image?.[0]} alt={item.name} className="h-[10vh]" />
       </div>
 
-      <div className="p-4 space-y-2">
+      <div className="p-4 space-y-2 flex flex-1 flex-col">
         <h2 className="text-lg font-semibold text-gray-800 line-clamp-2">
           {item.name}
         </h2>
-        <p className="text-sm text-gray-500 line-clamp-2">{item.description}</p>
+
+        <p className="text-sm text-gray-500  line-clamp-2">
+          {item.description}
+        </p>
 
         <div className="flex flex-row items-center justify-between">
           <p className="text-accent font-bold text-base text-left">
             ${item.price}
           </p>
+
           <button
-            className="text-sm text-primary font-medium hover:underline hover:text-accent hover:text-2xl "
+            className="text-sm text-primary font-medium hover:underline hover:text-accent"
             onClick={onViewDetail}
           >
             Xem chi tiết

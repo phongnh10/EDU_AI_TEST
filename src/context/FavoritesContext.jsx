@@ -1,6 +1,6 @@
 import { createContext, useState, useCallback, useEffect } from "react";
-import { AppLocalStorage, STORAGE_KEYS } from "../services/ApplocalStorage";
 import { successNotify, errorNotify } from "../components/toast/Toast";
+import { appLocaStorage } from "../services/AppLocalStorage";
 
 export const FavoritesContext = createContext();
 
@@ -36,7 +36,7 @@ export const FavoritesProvider = ({ children }) => {
         return errorNotify("Sản phẩm đã có trong yêu thích.");
       const updated = [...favorites, item];
       setFavorites(updated);
-      AppLocalStorage.saveItem(STORAGE_KEYS.FAVORITE, updated);
+      appLocaStorage.saveItem(STORAGE_KEYS.FAVORITE, updated);
       successNotify("Thêm sản phẩm yêu thích thành công.");
     },
     [favorites, isFavorite]
@@ -46,7 +46,7 @@ export const FavoritesProvider = ({ children }) => {
     (item) => {
       const updated = favorites.filter((fav) => fav._id !== item._id);
       setFavorites(updated);
-      AppLocalStorage.saveItem(STORAGE_KEYS.FAVORITE, updated);
+      appLocaStorage.saveItem(STORAGE_KEYS.FAVORITE, updated);
       successNotify("Xoá sản phẩm yêu thích thành công.");
     },
     [favorites]

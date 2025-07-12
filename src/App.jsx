@@ -4,10 +4,10 @@ import Favorite from "./pages/Favorite";
 import Home from "./pages/Home";
 import { useEffect } from "react";
 import { authApi } from "./api/userApi";
-import { AppLocalStorage, STORAGE_KEYS } from "./services/ApplocalStorage";
 import News from "./pages/News";
 import Support from "./pages/Support";
 import AboutUs from "./pages/AboutUs";
+import { appLocaStorage } from "./services/AppLocalStorage";
 
 export default function App() {
   useEffect(() => {
@@ -16,7 +16,7 @@ export default function App() {
       try {
         const res = await authApi.login(data);
         if (res) {
-          AppLocalStorage.saveItem(STORAGE_KEYS.ACCESS_TOKEN, res.data.token);
+          appLocaStorage.saveItem(STORAGE_KEYS.ACCESS_TOKEN, res.data.token);
           console.log(
             "Đăng nhập thành công:",
             JSON.stringify(res.data, null, 2)

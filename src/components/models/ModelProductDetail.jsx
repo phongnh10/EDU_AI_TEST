@@ -21,7 +21,7 @@ export default function ModelProductDetail({ product, onClose }) {
   };
 
   return (
-    <div className="fixed  inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+    <div className="fixed  inset-90  bg-opacity-0 flex justify-center items-center z-50">
       <div className="bg-white  p-6 rounded-lg shadow-lg min-h-[90vh] w-full max-w-md">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-xl font-bold ">{product.name}</h2>
@@ -42,11 +42,11 @@ export default function ModelProductDetail({ product, onClose }) {
             className="w-full h-full object-contain"
           />
           <FaChevronLeft
-            className="absolute  left-0 top-30 end-0"
+            className="absolute cursor-pointer left-0 top-30 end-0 "
             onClick={prevImage}
           />
           <FaChevronRight
-            className="absolute right-0 top-30 end-0"
+            className="absolute cursor-pointer right-0 top-30 end-0"
             onClick={nextImage}
           />
         </div>

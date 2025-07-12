@@ -15,10 +15,6 @@ export const CategoriesProvider = ({ children }) => {
       "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Republic_Of_Korea_Broadcasting-TV_Rating_System%28ALL%29.svg/1200px-Republic_Of_Korea_Broadcasting-TV_Rating_System%28ALL%29.svg.png",
   };
 
-  // useEffect(() => {
-  //   console.log("selected", selected);
-  // }, [selected]);
-
   useEffect(() => {
     const fetchCategories = async () => {
       setLoading(true);
