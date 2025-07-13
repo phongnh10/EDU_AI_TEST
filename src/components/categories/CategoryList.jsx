@@ -1,7 +1,10 @@
-import { useCategories } from "../../hooks/AppHook";
+import { useCategories } from "../../hooks/appHook";
+import { CategorySkeleton } from "../skeleton/CategoriesSkeleton";
 
 function CategoryList() {
-  const { categories, selected, setSelected } = useCategories();
+  const { categories, selected, setSelected, loading } = useCategories();
+
+  if (loading) return <CategorySkeleton />;
 
   return (
     <div className=" overflow-x-auto">

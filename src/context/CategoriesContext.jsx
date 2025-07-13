@@ -36,7 +36,7 @@ export const CategoriesProvider = ({ children }) => {
 
   return (
     <CategoriesContext.Provider
-      value={{ categories, selected, setSelected, allOption }}
+      value={{ categories, selected, setSelected, allOption, loading }}
     >
       {children}
     </CategoriesContext.Provider>

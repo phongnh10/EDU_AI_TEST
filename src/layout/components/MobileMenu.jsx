@@ -12,7 +12,7 @@ const navItems = [
 export default function MobileMenu({ isOpen, toggle }) {
   return (
     <div
-      className={`sm:hidden bg-primary text-white overflow-hidden transition-all duration-500 ease-in-out  ${
+      className={`md:hidden bg-primary text-white overflow-hidden transition-all duration-500 ease-in-out  ${
         isOpen ? "max-h-96 opacity-100 py-4" : "max-h-0 opacity-0 py-2"
       }`}
     >

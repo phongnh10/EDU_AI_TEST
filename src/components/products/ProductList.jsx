@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart, FaStar } from "react-icons/fa";
-import { useFavorites } from "../../hooks/useFavorites";
+import { useFavorites, useProducts } from "../../hooks/appHook";
 import ModelProductDetail from "../models/ModelProductDetail";
+import { ProductSkeleton } from "../skeleton/ProductSkeleton";
 
 const ProductList = ({ data }) => {
   const { isFavorite, toggleFavorite } = useFavorites();
+  const { loading } = useProducts();
   const [selectedProduct, setSelectedProduct] = useState(null);
+
+  if (loading) return <ProductSkeleton />;
 
   return (
     <div className="p-4 mt-4 min-h-full">
@@ -53,7 +57,11 @@ const ItemProduct = ({ item, isFavorite, toggleFavorite, onViewDetail }) => {
       </div>
 
       <div className="flex justify-center items-center">
-        <img src={item.image?.[0]} alt={item.name} className="h-[10vh] " />
+        <img
+          src={item.image?.[0]}
+          alt={item.name}
+          className="h-20 w-full object-contain"
+        />
       </div>
 
       <div className="p-4 space-y-2 flex flex-1 flex-col">

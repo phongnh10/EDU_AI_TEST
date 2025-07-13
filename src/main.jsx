@@ -11,7 +11,7 @@ createRoot(document.getElementById("root")).render(
     <AppProvider>
       <Toaster />
       <App />
-      <ChatAISuport />
+      {/* <ChatAISuport />     */}
     </AppProvider>
   </StrictMode>
 );

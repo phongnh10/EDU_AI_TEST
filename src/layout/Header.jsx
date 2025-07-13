@@ -1,7 +1,7 @@
 import { useState } from "react";
 import logo from "/src/assets/logo/logo_edu.png";
 import NavItem from "./components/NavItem";
-import MobileMenu from "./components/ MobileMenu";
+import MobileMenu from "./components/MobileMenu";
 import { GiHamburgerMenu } from "react-icons/gi";
 import LoginButton from "./components/LoginButton";
 

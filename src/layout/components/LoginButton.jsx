@@ -1,12 +1,11 @@
 import { FaRegUser } from "react-icons/fa";
-import { IoLogInOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
 export default function LoginButton({ className = "" }) {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    navigate("/login");
+    navigate("/");
   };
 
   return (
