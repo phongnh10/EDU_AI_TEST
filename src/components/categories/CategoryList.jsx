@@ -1,4 +1,4 @@
-import { useCategories } from "../../hooks/appHook";
+import { useCategories } from "../../hooks";
 import { CategorySkeleton } from "../skeleton/CategoriesSkeleton";
 
 function CategoryList() {

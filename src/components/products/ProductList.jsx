@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { CiHeart } from "react-icons/ci";
 import { FaHeart, FaStar } from "react-icons/fa";
-import { useFavorites, useProducts } from "../../hooks/appHook";
 import ModelProductDetail from "../models/ModelProductDetail";
 import { ProductSkeleton } from "../skeleton/ProductSkeleton";
+import { useFavorites, useProducts } from "../../hooks";
 
 const ProductList = ({ data }) => {
   const { isFavorite, toggleFavorite } = useFavorites();

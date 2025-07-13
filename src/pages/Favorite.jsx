@@ -1,5 +1,5 @@
 import ProductList from "../components/products/ProductList";
-import { useFavorites } from "../hooks/useFavorites";
+import { useFavorites } from "../hooks";
 
 export default function Favorite() {
   const { favorites } = useFavorites();
