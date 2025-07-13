@@ -30,7 +30,7 @@ export function ChatAISuport() {
   };
 
   return (
-    <div className="fixed bottom-5 right-5 z-50">
+    <div className="fixed bottom-5 right-5 z-50 max-w-[calc(100vw-2rem)]">
       {open && (
         <div className="w-80 h-96 bg-white shadow-lg rounded-lg flex flex-col">
           {/* Header */}
@@ -84,7 +84,7 @@ export function ChatAISuport() {
       )}
 
       {/* Nút mở chat */}
-      {!open && (
+      {open && (
         <button
           className="w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center text-xl"
           onClick={() => setOpen(true)}
