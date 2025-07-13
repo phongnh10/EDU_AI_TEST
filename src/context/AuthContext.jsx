@@ -16,8 +16,8 @@ export const AuthProvide = ({ children }) => {
         if (res) {
           appLocalStorage.saveItem(STORAGE_KEYS.ACCESS_TOKEN, res.data.token);
           console.log(
-            "Đăng nhập thành công:",
-            JSON.stringify(res.data, null, 2)
+            "Đăng nhập thành công:"
+            // JSON.stringify(res.data, null, 2)
           );
         }
       } catch (error) {

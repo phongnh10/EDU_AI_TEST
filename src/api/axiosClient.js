@@ -11,11 +11,16 @@ const axiosClient = axios.create({
 
 axiosClient.interceptors.request.use(
   (config) => {
-    const token = appLocalStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-      console.log("token:", token);
+    try {
+      const token = appLocalStorage.getItem(STORAGE_KEYS.ACCESS_TOKEN);
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+        // console.log("token:", token);
+      }
+    } catch (error) {
+      console.error("Lỗi khi lấy token:", error);
     }
+
     return config;
   },
   (error) => Promise.reject(error)

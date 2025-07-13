@@ -1,9 +1,9 @@
 import ProductList from "../components/products/ProductList";
 import CategoryList from "../components/categories/CategoryList";
 import SearchBox from "../components/search/SearchProducts";
-import { useCategories, useProducts } from "../hooks/appHook";
 import { useEffect, useState } from "react";
 import PriceRangeFilter from "../components/products/PriceRangeFilter";
+import { useCategories, useProducts } from "../hooks/appHook";
 
 function Home() {
   const { products, filterProducts } = useProducts();
