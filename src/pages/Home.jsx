@@ -3,7 +3,7 @@ import CategoryList from "../components/categories/CategoryList";
 import SearchBox from "../components/search/SearchProducts";
 import { useEffect, useState } from "react";
 import PriceRangeFilter from "../components/products/PriceRangeFilter";
-import { useCategories, useProducts } from "../hooks/appHook";
+import { useProducts, useCategories } from "../hooks/appHook";
 
 function Home() {
   const { products, filterProducts } = useProducts();
