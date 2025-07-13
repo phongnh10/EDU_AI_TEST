@@ -22,7 +22,7 @@ export default function SearchProducts({ onChange }) {
         placeholder="Tìm kiếm sản phẩm..."
         value={keyword}
         onChange={handleInputChange}
-        className="w-full h-10 p-2 border rounded shadow-sm focus:outline-none focus:ring-1 focus:ring-primary"
+        className="w-full h-10 p-2 border-0 border-gray-500 rounded  ring-1 focus:ring-accent"
       />
 
       {keyword && (

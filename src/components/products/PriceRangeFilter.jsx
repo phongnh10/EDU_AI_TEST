@@ -25,7 +25,7 @@ export default function PriceRangeFilter({ onChange }) {
   return (
     <div className="bg-white shadow-sm ">
       <select
-        className="w-full h-10 p-2 border border-primary rounded"
+        className="w-full h-10 p-2 border-0 border-gray-500 rounded ring-1 focus:ring-accent"
         value={selected}
         onChange={handleChange}
       >

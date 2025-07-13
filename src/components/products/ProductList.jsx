@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CiHeart } from "react-icons/ci";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaStar } from "react-icons/fa";
 import { useFavorites } from "../../hooks/useFavorites";
 import ModelProductDetail from "../models/ModelProductDetail";
 
@@ -11,7 +11,7 @@ const ProductList = ({ data }) => {
   return (
     <div className="p-4 mt-4 min-h-full">
       {data && data.length > 0 ? (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {data.map((item) => (
             <ItemProduct
               key={item._id}
@@ -53,7 +53,7 @@ const ItemProduct = ({ item, isFavorite, toggleFavorite, onViewDetail }) => {
       </div>
 
       <div className="flex justify-center items-center">
-        <img src={item.image?.[0]} alt={item.name} className="h-[10vh]" />
+        <img src={item.image?.[0]} alt={item.name} className="h-[10vh] " />
       </div>
 
       <div className="p-4 space-y-2 flex flex-1 flex-col">
@@ -66,9 +66,13 @@ const ItemProduct = ({ item, isFavorite, toggleFavorite, onViewDetail }) => {
         </p>
 
         <div className="flex flex-row items-center justify-between">
-          <p className="text-accent font-bold text-base text-left">
-            ${item.price}
-          </p>
+          <div className="flex flex-1 gap-2 lg:gap-4 items-center">
+            <p className="font-bold text-base">{item.price}$</p>
+            <div className="flex  justify-center items-center gap-1">
+              <p className="font-bold text-base">{item.rating}</p>
+              <FaStar className="text-yellow-400" />
+            </div>
+          </div>
 
           <button
             className="text-sm text-primary font-medium hover:underline hover:text-accent"
