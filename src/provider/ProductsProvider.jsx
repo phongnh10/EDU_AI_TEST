@@ -1,8 +1,6 @@
-import { createContext, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { getProducts } from "../api/productApi";
-import { useCategories } from "../hooks";
-
-export const ProductsContext = createContext();
+import { ProductsContext } from "../context/ProductsContext";
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);

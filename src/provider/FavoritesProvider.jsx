@@ -1,8 +1,7 @@
-import { createContext, useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { successNotify, errorNotify } from "../components/toast/Toast";
 import { appLocalStorage, STORAGE_KEYS } from "../services/AppLocalStorage";
-
-export const FavoritesContext = createContext();
+import { FavoritesContext } from "../context/FavoritesContext";
 
 export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);

@@ -1,8 +1,6 @@
-import { createContext, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { appLocalStorage, STORAGE_KEYS } from "../services/AppLocalStorage";
-import { successNotify } from "../components/toast/Toast";
-
-export const RecentProductsContext = createContext();
+import { RecentProductsContext } from "../context/recentProductsContext";
 
 export const RecentProductsProvider = ({ children }) => {
   const [recentProducts, setRecentProducts] = useState([]);

@@ -15,7 +15,7 @@ function Home() {
     if (selected) {
       filterProducts({ category: selected, name: keyWord, price: value });
     }
-  }, [selected, keyWord, value]);
+  }, [selected, keyWord, value, filterProducts]);
 
   return (
     <div className="flex flex-col flex-1 gap-4 my-4 ">

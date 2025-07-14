@@ -23,9 +23,9 @@ export function ChatAISuport() {
   ]);
 
   const suggestions = [
-    { id: 1, text: "Xem khoá học đã xem gần đây" },
-    { id: 2, text: "Hiển thị các khoá học đã yêu thích" },
-    { id: 3, text: "Gợi ý khoá học phù hợp với bạn" },
+    { id: 1, text: "Đã xem gần đây" },
+    { id: 2, text: "Khoá học đã yêu thích" },
+    { id: 3, text: "Gợi ý khoá học phù hợp" },
   ];
 
   const handleSend = () => {
@@ -36,7 +36,7 @@ export function ChatAISuport() {
 
     let botMessages = [];
 
-    if (text.includes("đã xem")) {
+    if (text.includes("xem")) {
       botMessages = [
         { type: "products", data: recentProducts },
         {
@@ -51,14 +51,14 @@ export function ChatAISuport() {
         {
           type: "text",
           from: "bot",
-          text: "Đây là sản phẩm bạn đã yêu thích!",
+          text: "Đây là khoá học bạn đã yêu thích!",
         },
       ];
     } else if (text.includes("phù hợp")) {
       const random = Math.random() < 0.5 ? favorites : recentProducts;
       const label =
         random === favorites
-          ? "Đây là sản phẩm bạn đã yêu thích (ngẫu nhiên)!"
+          ? "Đây là khoá học bạn đã yêu thích (ngẫu nhiên)!"
           : "Đây là khoá học bạn đã xem gần đây (ngẫu nhiên)!";
 
       botMessages = [
@@ -122,7 +122,7 @@ export function ChatAISuport() {
         </div>
       ) : (
         <button
-          className="w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center text-xl cursor-pointer"
+          className="w-14 h-14 bg-primary border-1 border-white text-white rounded-full shadow-lg flex items-center justify-center text-xl cursor-pointer"
           onClick={() => setOpen(true)}
         >
           <FiMessageCircle />

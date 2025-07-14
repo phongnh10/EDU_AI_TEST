@@ -4,20 +4,18 @@ import { CiHeart } from "react-icons/ci";
 import { useFavorites } from "../../hooks/useFavorites";
 
 export default function ModelProductDetail({ product, onClose }) {
-  if (!product) return null;
-
   const { toggleFavorite, isFavorite } = useFavorites();
   const [index, setIndex] = useState(0);
   const [expanded, setExpanded] = useState(false);
 
-  const isFav = isFavorite(product);
+  const isFav = isFavorite(product || null);
 
   const nextImage = () => {
-    setIndex((prev) => (prev < product.image.length - 1 ? prev + 1 : 0));
+    setIndex((prev) => (prev < product?.image?.length - 1 ? prev + 1 : 0));
   };
 
   const prevImage = () => {
-    setIndex((prev) => (prev > 0 ? prev - 1 : product.image.length - 1));
+    setIndex((prev) => (prev > 0 ? prev - 1 : product?.image?.length - 1));
   };
 
   const handleCloseInside = (e) => {
@@ -34,10 +32,10 @@ export default function ModelProductDetail({ product, onClose }) {
         className="relative bg-white p-8 rounded-lg shadow-lg lg:max-w-[120vh] lg:min-h-[80vh]"
       >
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold">{product.name}</h2>
+          <h2 className="text-xl font-bold">{product?.name}</h2>
           <button
             className="cursor-pointer"
-            onClick={() => toggleFavorite(product)}
+            onClick={() => toggleFavorite(product || null)}
           >
             {isFav ? (
               <FaHeart className="text-red-600 text-xl" />
@@ -49,8 +47,8 @@ export default function ModelProductDetail({ product, onClose }) {
 
         <div className="relative h-[300px] sm:h-[400px] flex justify-center items-center mb-6">
           <img
-            src={product.image?.[index]}
-            alt={product.name}
+            src={product?.image?.[index]}
+            alt={product?.name}
             className="w-full h-full object-contain rounded transition-all duration-300"
           />
           <button
@@ -68,9 +66,9 @@ export default function ModelProductDetail({ product, onClose }) {
         </div>
 
         <div className="flex items-center gap-4 mb-3">
-          <p className="text-base font-bold text-gray-800">{product.price}$</p>
+          <p className="text-base font-bold text-gray-800">{product?.price}$</p>
           <div className="flex items-center gap-1 text-yellow-400">
-            <span className="font-bold">{product.rating}</span>
+            <span className="font-bold">{product?.rating}</span>
             <FaStar />
           </div>
         </div>
@@ -78,7 +76,7 @@ export default function ModelProductDetail({ product, onClose }) {
         <p
           className={`${!expanded ? "line-clamp-4" : ""} text-sm text-gray-700`}
         >
-          {product.description}
+          {product?.description}
         </p>
         <button
           onClick={() => setExpanded(!expanded)}
