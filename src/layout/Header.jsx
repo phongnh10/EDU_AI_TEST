@@ -13,7 +13,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-primary text-white shadow p-4 sm:p-4">
+    <header className="sticky top-0 z-50 bg-primary rounded-b-2xl sm:rounded-none text-white shadow p-4 sm:p-4">
       <div className="flex items-center justify-between px-4">
         <div className="flex items-center gap-4">
           <img src={logo} alt="Logo" className="h-8 w-auto invert" />

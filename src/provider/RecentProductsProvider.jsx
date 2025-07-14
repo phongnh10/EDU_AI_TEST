@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { appLocalStorage, STORAGE_KEYS } from "../services/AppLocalStorage";
-import { RecentProductsContext } from "../context/recentProductsContext";
+import { RecentProductsContext } from "../context/RecentProductsContext";
 
 export const RecentProductsProvider = ({ children }) => {
   const [recentProducts, setRecentProducts] = useState([]);

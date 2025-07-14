@@ -24,8 +24,8 @@ export function ChatAISuport() {
 
   const suggestions = [
     { id: 1, text: "Đã xem gần đây" },
-    { id: 2, text: "Khoá học đã yêu thích" },
-    { id: 3, text: "Gợi ý khoá học phù hợp" },
+    { id: 2, text: "Sản phẩm đã yêu thích" },
+    { id: 3, text: "Gợi ý sản phẩm phù hợp" },
   ];
 
   const handleSend = () => {
@@ -42,7 +42,7 @@ export function ChatAISuport() {
         {
           type: "text",
           from: "bot",
-          text: "Đây là khoá học bạn đã xem gần đây!",
+          text: "Đây là sản phẩm bạn đã xem gần đây!",
         },
       ];
     } else if (text.includes("yêu thích")) {
@@ -51,15 +51,15 @@ export function ChatAISuport() {
         {
           type: "text",
           from: "bot",
-          text: "Đây là khoá học bạn đã yêu thích!",
+          text: "Đây là sản phẩm bạn đã yêu thích!",
         },
       ];
     } else if (text.includes("phù hợp")) {
       const random = Math.random() < 0.5 ? favorites : recentProducts;
       const label =
         random === favorites
-          ? "Đây là khoá học bạn đã yêu thích (ngẫu nhiên)!"
-          : "Đây là khoá học bạn đã xem gần đây (ngẫu nhiên)!";
+          ? "Đây là sản phẩm bạn đã yêu thích (ngẫu nhiên)!"
+          : "Đây là sản phẩm bạn đã xem gần đây (ngẫu nhiên)!";
 
       botMessages = [
         { type: "products", data: random },

@@ -1,12 +1,135 @@
-# React + Vite
+# Edu AI - Ứng dụng gợi ý sản phẩm bằng "AI giả lập"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Edu AI là một ứng dụng web xây dựng bằng React, mô phỏng tính năng gợi ý sản phẩm bằng AI dựa trên hành vi người dùng. Hệ thống sử dụng mock AI và kết nối với một API thật để lấy dữ liệu sản phẩm và danh mục.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tính năng chính
 
-## Expanding the ESLint configuration
+- Hiển thị danh sách sản phẩm theo danh mục
+- Bộ lọc sản phẩm theo tên, giá và danh mục
+- Gợi ý sản phẩm dựa trên sản phẩm yêu thích và xem gần đây
+- Chatbot mô phỏng AI để tư vấn sản phẩm
+- Quản lý danh sách yêu thích
+- Lưu lịch sử sản phẩm đã xem
+- Modal chi tiết sản phẩm
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Kiến trúc dự án
+
+Dự án sử dụng kiến trúc component-based kết hợp Context API để quản lý trạng thái toàn cục.
+
+src/
+├── api/ Giao tiếp API từ server
+├── components/ Các thành phần giao diện
+├── context/ React Context cho state toàn cục
+├── hooks/ Custom hooks tiện ích
+├── pages/ Các trang chính như Home, Favorites
+├── provider/ Các Provider kết nối Context
+├── services/ Dịch vụ tiện ích (LocalStorage, Toast, ...)
+├── App.jsx Thành phần gốc chứa các route chính của ứng dụng
+└── main.jsx Entry point: khởi tạo React app & gắn các Context Provider
+
+---
+
+## API sử dụng
+
+- Link tài liệu API: [https://restapirepo.onrender.com/api-docs]
+- Các endpoint chính:
+  - `/products`: Lấy danh sách sản phẩm
+  - `/categories`: Lấy danh mục sản phẩm
+  - `/auth/login`: đăng nhập
+
+---
+
+## Yêu cầu môi trường
+
+- Node.js: >=18.x
+- npm: >=9.x (hoặc yarn)
+
+---
+
+## Cài đặt & chạy ứng dụng
+
+```bash
+# Bước 1: Clone repo
+git clone https://github.com/phongnh10/EDU_AI_TEST
+cd edu-ai
+
+# Bước 2: Cài đặt dependencies
+npm install
+
+# Bước 3: Chạy ứng dụng
+npm run dev
+
+```
+
+## Build production
+
+- npm run build
+- npm run preview
+
+## Thư viện sử dụng
+
+- React v19
+- React Router v7
+- Axios
+- TailwindCSS v4
+- React Hot Toast
+- React Icons
+- React Loading Skeleton
+
+## Chức năng chưa hoàn thiện
+
+- Tích hợp AI thật (OpenAI hoặc ML model)
+- Hiện tại xác thực người dùng đang sử dụng tài khoản mẫu được gán sẵn (mock login). Tuy có gọi API thật để lấy token, nhưng chưa có form đăng nhập cho người dùng nhập thông tin.
+- Unit test cho các component và logic
+
+## Định hướng phát triển
+
+- Tích hợp AI thật để tư vấn sản phẩm thông minh
+- Phân quyền user/admin
+- Thêm chức năng đánh giá, bình luận sản phẩm
+- Tối ưu performance
+- Viết unit test bằng Jest hoặc Vitest
+- Đóng góp
+
+Rất hoan nghênh mọi đóng góp! Hãy tạo issue hoặc gửi pull request để cải thiện dự án.
+
+## Hình ảnh
+
+- Home
+  Mobile:
+  ![](./src/assets/readme/home-mobiel.png)
+
+Tablet:
+![](./src/assets/readme/home-tablet.png)
+
+Desktop (PC):
+![](./src/assets/readme/home-pc.png)
+
+- Favorites
+  Mobile:
+  ![](./src/assets/readme/favorites-mobiel.png)
+
+Tablet:
+![](./src/assets/readme/favorites-tablet.png)
+
+Desktop (PC):
+![](./src/assets/readme/favorites-pc.png)
+
+- Chatbox
+  Mobile:
+  ![](./src/assets/readme/chatbox-mobiel.png)
+
+Tablet:
+![](./src/assets/readme/chatbox-tablet.png)
+
+Desktop (PC):
+![](./src/assets/readme/chatbox-pc.png)
+
+## Tác giả
+
+Nguyễn Hồng Phong
+Email: nguyenhongphong1010.02@gmail.com
