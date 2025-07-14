@@ -20,18 +20,18 @@ Edu AI là một ứng dụng web xây dựng bằng React, mô phỏng tính n�
 
 Dự án sử dụng kiến trúc component-based kết hợp Context API để quản lý trạng thái toàn cục.
 
+```
 src/
-├── api/ Giao tiếp API từ server
-├── components/ Các thành phần giao diện
-├── context/ React Context cho state toàn cục
-├── hooks/ Custom hooks tiện ích
-├── pages/ Các trang chính như Home, Favorites
-├── provider/ Các Provider kết nối Context
-├── services/ Dịch vụ tiện ích (LocalStorage, Toast, ...)
-├── App.jsx Thành phần gốc chứa các route chính của ứng dụng
-└── main.jsx Entry point: khởi tạo React app & gắn các Context Provider
-
----
+├── api/               Giao tiếp API từ server
+├── components/        Các thành phần giao diện
+├── context/           React Context cho state toàn cục
+├── hooks/             Custom hooks tiện ích
+├── pages/             Các trang chính như Home, Favorites
+├── provider/          Các Provider kết nối Context
+├── services/          Dịch vụ tiện ích (LocalStorage, Toast, ...)
+├── App.jsx            Thành phần gốc chứa các route chính của ứng dụng
+└── main.jsx           Entry point: khởi tạo React app & gắn các Context Provider
+```
 
 ## API sử dụng
 
