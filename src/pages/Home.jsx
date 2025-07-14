@@ -19,7 +19,7 @@ function Home() {
 
   return (
     <div className="flex flex-col flex-1 gap-4 my-4 ">
-      <div className="flex flex-col gap-4  bg-white p-8 shadow-2xl">
+      <div className="flex flex-col justify-around gap-4 bg-white p-4 sm:p-8 shadow-2xl">
         <h4 className="text-2xl font-bold">Chào mừng bạn đến với Edu AI!</h4>
       </div>
 

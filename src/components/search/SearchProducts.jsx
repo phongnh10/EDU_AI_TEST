@@ -16,13 +16,15 @@ export default function SearchProducts({ onChange }) {
   };
 
   return (
-    <div className="relative w-full sm:w-1/2 lg:w-1/3">
+    <div className="relative border-1 px-2 border-gray-500 rounded-sm w-full sm:w-1/2 lg:w-1/3">
       <input
         type="text"
         placeholder="Tìm kiếm sản phẩm..."
         value={keyword}
         onChange={handleInputChange}
-        className="w-full h-10 p-2 border-0 border-gray-500 rounded  ring-1 focus:ring-accent"
+        className="w-full h-10 rounded-sm 
+             focus:outline-none focus:ring-0 focus:border-gray-300 
+             focus-visible:outline-none"
       />
 
       {keyword && (

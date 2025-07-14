@@ -5,7 +5,7 @@ import ModelProductDetail from "../models/ModelProductDetail";
 import { ProductSkeleton } from "../skeleton/ProductSkeleton";
 import { useFavorites, useProducts } from "../../hooks";
 
-const ProductList = ({ data }) => {
+const ProductList = ({ data, isChatAI = false }) => {
   const { isFavorite, toggleFavorite } = useFavorites();
   const { loading } = useProducts();
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -15,7 +15,13 @@ const ProductList = ({ data }) => {
   return (
     <div className="p-4 mt-4 min-h-full">
       {data && data.length > 0 ? (
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div
+          className={
+            isChatAI
+              ? "grid grid-cols-1 gap-4"
+              : "grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
+          }
+        >
           {data.map((item) => (
             <ItemProduct
               key={item._id}
@@ -45,13 +51,22 @@ const ItemProduct = ({ item, isFavorite, toggleFavorite, onViewDetail }) => {
   const check = isFavorite(item);
 
   return (
-    <div className="flex-col flex-1 justify-between items-center shadow-md relative cursor-pointer border-gray-200 border-1 rounded-xl lg:border-0 hover:shadow-xl hover:rounded-2xl p-4">
+    <div
+      onClick={onViewDetail}
+      className="flex-col flex-1 justify-between items-center  relative cursor-pointer border-gray-200 border-1 rounded-lg lg:border-0 hover:shadow-xl hover:rounded-lg p-4"
+    >
       <div className="flex justify-end p-4">
-        <div onClick={() => toggleFavorite(item)}>
+        <div
+          onClick={(e) => {
+            e.stopPropagation();
+            toggleFavorite(item);
+          }}
+          className="cursor-pointer"
+        >
           {check ? (
-            <FaHeart className="text-red-600 text-xl" />
+            <FaHeart className="text-red-600 text-2xl" />
           ) : (
-            <CiHeart className="text-primary hover:text-red-600 text-xl" />
+            <CiHeart className="text-primary hover:text-red-600 text-2xl" />
           )}
         </div>
       </div>

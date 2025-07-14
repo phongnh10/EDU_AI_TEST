@@ -24,3 +24,11 @@
 .animate-fade-in {
   animation: fade-in 0.3s ease-out;
 }
+
+
+select:focus,
+input:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: #d1d5db !important; 
+}

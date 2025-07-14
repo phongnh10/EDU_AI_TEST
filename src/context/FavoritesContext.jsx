@@ -14,6 +14,7 @@ export const FavoritesProvider = ({ children }) => {
       try {
         const stored =
           (await appLocalStorage.getItem(STORAGE_KEYS.FAVORITE)) || [];
+        console.log("favorites", JSON.stringify(stored, null, 2));
         setFavorites(stored);
       } catch (error) {
         console.error("Lỗi khi lấy dữ liệu yêu thích:", error);

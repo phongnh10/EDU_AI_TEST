@@ -1,92 +1,113 @@
-import { useState } from "react";
-import { FaRobot } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
 import { FiMessageCircle } from "react-icons/fi";
-import { IoIosCloseCircle } from "react-icons/io";
+import ChatHeader from "./components/ChatHeader";
+import ChatMessages from "./components/ChatMessages";
+import ChatSuggestions from "./components/ChatSuggestions";
+import ChatInput from "./components/ChatInput";
+import { useFavorites } from "../../hooks";
 
 export function ChatAISuport() {
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { from: "bot", text: "Xin chào! Tôi có thể giúp gì cho bạn hôm nay?" },
-  ]);
   const [input, setInput] = useState("");
+  const chatRef = useRef(null);
+
+  const { favorites } = useFavorites();
+  const [messages, setMessages] = useState([
+    {
+      type: "text",
+      from: "bot",
+      text: "Xin chào! Tôi có thể giúp gì cho bạn hôm nay?",
+    },
+  ]);
+
+  const suggestions = [
+    { id: 1, text: "Xem khoá học đã xem gần đây" },
+    { id: 2, text: "Hiển thị các khoá học đã yêu thích" },
+    { id: 3, text: "Gợi ý khoá học phù hợp với bạn" },
+  ];
 
   const handleSend = () => {
     if (!input.trim()) return;
 
-    setMessages((prev) => [...prev, { from: "user", text: input }]);
+    const userMessage = { type: "text", from: "user", text: input };
 
-    setTimeout(() => {
+    if (input.includes("gợi ý") || input.includes("phù hợp")) {
       setMessages((prev) => [
         ...prev,
-        { from: "user", text: input },
+        userMessage,
+        { type: "products", data: favorites },
         {
+          type: "text",
+          from: "bot",
+          text: "Đây là khoá học bạn có thể quan tâm!",
+        },
+      ]);
+    } else if (input.includes("yêu thích")) {
+      setMessages((prev) => [
+        ...prev,
+        userMessage,
+        { type: "products", data: favorites },
+        {
+          type: "text",
+          from: "bot",
+          text: "Đây là sản phẩm bạn đã yêu thích!",
+        },
+      ]);
+    } else {
+      setMessages((prev) => [
+        ...prev,
+        userMessage,
+        {
+          type: "text",
           from: "bot",
           text: "Cảm ơn bạn đã hỏi! Hiện tại tôi chưa được kết nối với AI thật.",
         },
       ]);
-    }, 500);
+    }
 
     setInput("");
   };
 
+  const handleSuggestionClick = (s) => {
+    setInput(s.text);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (chatRef.current && !chatRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+
+    if (open) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [open]);
+
   return (
-    <div className="fixed bottom-5 right-5 z-50 max-w-[calc(100vw-2rem)]">
-      {open && (
-        <div className="w-80 h-96 bg-white shadow-lg rounded-lg flex flex-col">
-          {/* Header */}
-          <div className="flex justify-between items-center p-3 border-b">
-            <h2 className="font-semibold text-primary">Hỗ trợ AI</h2>
-            <button onClick={() => setOpen(false)}>
-              <IoIosCloseCircle className="text-xl text-gray-500" />
-            </button>
-          </div>
-
-          {/* Chat content */}
-          <div className="flex-1 p-3 overflow-y-auto space-y-2">
-            {messages.map((msg, idx) => (
-              <div
-                key={idx}
-                className={`flex ${
-                  msg.from === "user" ? "justify-end" : "justify-start"
-                }`}
-              >
-                <div
-                  className={`max-w-[75%] px-3 py-2 rounded-lg text-sm ${
-                    msg.from === "user"
-                      ? "bg-blue-100 text-right"
-                      : "bg-gray-100"
-                  }`}
-                >
-                  {msg.text}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Input */}
-          <div className="flex p-2 border-t gap-2">
-            <input
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              className="flex-1 border border-gray-300 rounded px-3 py-1 text-sm focus:outline-primary"
-              placeholder="Nhập tin nhắn..."
-              onKeyDown={(e) => e.key === "Enter" && handleSend()}
+    <div className="fixed bottom-5 right-5 z-50">
+      {open ? (
+        <div className="relative">
+          <div
+            ref={chatRef}
+            className="ml-5 sm:w-[450px] h-[600px] bg-white shadow-lg rounded-lg flex flex-col gap-2"
+          >
+            <ChatHeader onClose={() => setOpen(false)} />
+            <ChatMessages messages={messages} />
+            <ChatSuggestions
+              suggestions={suggestions}
+              onClick={handleSuggestionClick}
             />
-            <button
-              onClick={handleSend}
-              className="bg-primary text-white px-3 py-1 rounded text-sm"
-            >
-              Gửi
-            </button>
+            <ChatInput input={input} setInput={setInput} onSend={handleSend} />
           </div>
         </div>
-      )}
-
-      {/* Nút mở chat */}
-      {open && (
+      ) : (
         <button
-          className="w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center text-xl"
+          className="w-14 h-14 bg-primary text-white rounded-full shadow-lg flex items-center justify-center text-xl cursor-pointer"
           onClick={() => setOpen(true)}
         >
           <FiMessageCircle />

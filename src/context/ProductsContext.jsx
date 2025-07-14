@@ -1,5 +1,6 @@
 import { createContext, useCallback, useEffect, useState } from "react";
 import { getProducts } from "../api/productApi";
+import { useCategories } from "../hooks";
 
 export const ProductsContext = createContext();
 
@@ -7,6 +8,7 @@ export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [originalProducts, setOriginalProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const { categories } = useCategories();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -23,8 +25,10 @@ export const ProductsProvider = ({ children }) => {
       }
     };
 
-    fetchProducts();
-  }, []);
+    if (categories?.length > 0) {
+      fetchProducts();
+    }
+  }, [categories]);
 
   const filterProducts = useCallback(
     (filters = {}) => {
