@@ -101,7 +101,7 @@ Rất hoan nghênh mọi đóng góp! Hãy tạo issue hoặc gửi pull request
 
 - Home
   Mobile:
-  ![](./src/assets/readme/home-mobiel.png)
+  ![](./src/assets/readme/home-mobile.png)
 
 Tablet:
 ![](./src/assets/readme/home-tablet.png)
@@ -111,7 +111,7 @@ Desktop (PC):
 
 - Favorites
   Mobile:
-  ![](./src/assets/readme/favorites-mobiel.png)
+  ![](./src/assets/readme/favorites-mobile.png)
 
 Tablet:
 ![](./src/assets/readme/favorites-tablet.png)
@@ -121,7 +121,7 @@ Desktop (PC):
 
 - Chatbox
   Mobile:
-  ![](./src/assets/readme/chatbox-mobiel.png)
+  ![](./src/assets/readme/chatbox-mobile.png)
 
 Tablet:
 ![](./src/assets/readme/chatbox-tablet.png)
