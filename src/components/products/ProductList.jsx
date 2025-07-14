@@ -3,12 +3,13 @@ import { CiHeart } from "react-icons/ci";
 import { FaHeart, FaStar } from "react-icons/fa";
 import ModelProductDetail from "../models/ModelProductDetail";
 import { ProductSkeleton } from "../skeleton/ProductSkeleton";
-import { useFavorites, useProducts } from "../../hooks";
+import { useFavorites, useProducts, useRecentProducts } from "../../hooks";
 
 const ProductList = ({ data, isChatAI = false }) => {
   const { isFavorite, toggleFavorite } = useFavorites();
   const { loading } = useProducts();
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const { addRecentProduct } = useRecentProducts();
 
   if (loading) return <ProductSkeleton />;
 
@@ -28,7 +29,10 @@ const ProductList = ({ data, isChatAI = false }) => {
               item={item}
               isFavorite={isFavorite}
               toggleFavorite={toggleFavorite}
-              onViewDetail={() => setSelectedProduct(item)}
+              onViewDetail={() => {
+                setSelectedProduct(item);
+                addRecentProduct(item);
+              }}
             />
           ))}
         </div>

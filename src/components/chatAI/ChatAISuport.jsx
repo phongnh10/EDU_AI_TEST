@@ -4,7 +4,7 @@ import ChatHeader from "./components/ChatHeader";
 import ChatMessages from "./components/ChatMessages";
 import ChatSuggestions from "./components/ChatSuggestions";
 import ChatInput from "./components/ChatInput";
-import { useFavorites } from "../../hooks";
+import { useFavorites, useRecentProducts } from "../../hooks";
 
 export function ChatAISuport() {
   const [open, setOpen] = useState(false);
@@ -12,6 +12,8 @@ export function ChatAISuport() {
   const chatRef = useRef(null);
 
   const { favorites } = useFavorites();
+  const { recentProducts } = useRecentProducts();
+
   const [messages, setMessages] = useState([
     {
       type: "text",
@@ -27,44 +29,57 @@ export function ChatAISuport() {
   ];
 
   const handleSend = () => {
-    if (!input.trim()) return;
+    const text = input.trim();
+    if (!text) return;
 
-    const userMessage = { type: "text", from: "user", text: input };
+    const userMessage = { type: "text", from: "user", text };
 
-    if (input.includes("gợi ý") || input.includes("phù hợp")) {
-      setMessages((prev) => [
-        ...prev,
-        userMessage,
-        { type: "products", data: favorites },
+    let botMessages = [];
+
+    if (text.includes("đã xem")) {
+      botMessages = [
+        { type: "products", data: recentProducts },
         {
           type: "text",
           from: "bot",
-          text: "Đây là khoá học bạn có thể quan tâm!",
+          text: "Đây là khoá học bạn đã xem gần đây!",
         },
-      ]);
-    } else if (input.includes("yêu thích")) {
-      setMessages((prev) => [
-        ...prev,
-        userMessage,
+      ];
+    } else if (text.includes("yêu thích")) {
+      botMessages = [
         { type: "products", data: favorites },
         {
           type: "text",
           from: "bot",
           text: "Đây là sản phẩm bạn đã yêu thích!",
         },
-      ]);
+      ];
+    } else if (text.includes("phù hợp")) {
+      const random = Math.random() < 0.5 ? favorites : recentProducts;
+      const label =
+        random === favorites
+          ? "Đây là sản phẩm bạn đã yêu thích (ngẫu nhiên)!"
+          : "Đây là khoá học bạn đã xem gần đây (ngẫu nhiên)!";
+
+      botMessages = [
+        { type: "products", data: random },
+        {
+          type: "text",
+          from: "bot",
+          text: label,
+        },
+      ];
     } else {
-      setMessages((prev) => [
-        ...prev,
-        userMessage,
+      botMessages = [
         {
           type: "text",
           from: "bot",
           text: "Cảm ơn bạn đã hỏi! Hiện tại tôi chưa được kết nối với AI thật.",
         },
-      ]);
+      ];
     }
 
+    setMessages((prev) => [...prev, userMessage, ...botMessages]);
     setInput("");
   };
 
@@ -94,7 +109,7 @@ export function ChatAISuport() {
         <div className="relative">
           <div
             ref={chatRef}
-            className="ml-5 sm:w-[450px] h-[600px] bg-white shadow-lg rounded-lg flex flex-col gap-2"
+            className="ml-5 sm:w-[450px] h-[600px] sm:h-[670px] bg-white shadow-lg rounded-lg flex flex-col gap-2"
           >
             <ChatHeader onClose={() => setOpen(false)} />
             <ChatMessages messages={messages} />

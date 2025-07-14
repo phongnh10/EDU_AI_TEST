@@ -1,16 +1,19 @@
-import { AuthProvide } from "./AuthContext";
+import { AuthProvider } from "./AuthContext";
 import { CategoriesProvider } from "./CategoriesContext";
 import { FavoritesProvider } from "./FavoritesContext";
 import { ProductsProvider } from "./ProductsContext";
+import { RecentProductsProvider } from "./RecentProductsContext";
 
 export const AppProvider = ({ children }) => {
   return (
-    <AuthProvide>
+    <AuthProvider>
       <CategoriesProvider>
         <ProductsProvider>
-          <FavoritesProvider>{children}</FavoritesProvider>
+          <RecentProductsProvider>
+            <FavoritesProvider>{children}</FavoritesProvider>
+          </RecentProductsProvider>
         </ProductsProvider>
       </CategoriesProvider>
-    </AuthProvide>
+    </AuthProvider>
   );
 };

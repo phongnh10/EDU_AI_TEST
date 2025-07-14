@@ -4,7 +4,7 @@ import { authApi } from "../api/userApi";
 
 export const AuthContext = createContext();
 
-export const AuthProvide = ({ children }) => {
+export const AuthProvider = ({ children }) => {
   const [email, setEmail] = useState("phongnguyen@gmail.com");
   const [password, setPassword] = useState("phongnguyen");
 
