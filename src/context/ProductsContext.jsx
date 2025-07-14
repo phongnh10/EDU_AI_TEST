@@ -8,7 +8,6 @@ export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [originalProducts, setOriginalProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const { categories } = useCategories();
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -25,10 +24,8 @@ export const ProductsProvider = ({ children }) => {
       }
     };
 
-    if (categories?.length > 0) {
-      fetchProducts();
-    }
-  }, [categories]);
+    fetchProducts();
+  }, []);
 
   const filterProducts = useCallback(
     (filters = {}) => {

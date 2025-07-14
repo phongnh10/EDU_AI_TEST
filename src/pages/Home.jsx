@@ -1,9 +1,9 @@
-import ProductList from "../components/products/ProductList";
 import CategoryList from "../components/categories/CategoryList";
 import SearchBox from "../components/search/SearchProducts";
 import { useEffect, useState } from "react";
 import PriceRangeFilter from "../components/products/PriceRangeFilter";
 import { useCategories, useProducts } from "../hooks";
+import ProductsList from "../components/products/ProductsList";
 
 function Home() {
   const { products, filterProducts } = useProducts();
@@ -42,7 +42,7 @@ function Home() {
 
       <div className=" bg-white p-8 gap-8 shadow-2xl">
         <span className="text-xl text-primary font-bold">Sản phẩm</span>
-        <ProductList data={products} />
+        <ProductsList data={products} />
       </div>
     </div>
   );

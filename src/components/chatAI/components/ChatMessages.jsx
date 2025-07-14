@@ -1,4 +1,4 @@
-import ProductList from "../../products/ProductList";
+import ProductsList from "../../products/ProductsList";
 
 export default function ChatMessages({ messages }) {
   return (
@@ -26,7 +26,7 @@ export default function ChatMessages({ messages }) {
         if (msg.type === "products") {
           return (
             <div key={idx}>
-              <ProductList isChatAI={true} data={msg.data} />
+              <ProductsList isChatAI={true} data={msg.data} />
             </div>
           );
         }

@@ -1,4 +1,4 @@
-import ProductList from "../components/products/ProductList";
+import ProductsList from "../components/products/ProductsList";
 import { useFavorites } from "../hooks";
 
 export default function Favorite() {
@@ -9,7 +9,7 @@ export default function Favorite() {
       <h4 className="text-xl text-primary font-bold mb-4">
         Danh sách sản phẩm yêu thích
       </h4>
-      <ProductList data={favorites} />
+      <ProductsList data={favorites} />
     </div>
   );
 }

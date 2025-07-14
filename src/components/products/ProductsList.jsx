@@ -5,7 +5,7 @@ import ModelProductDetail from "../models/ModelProductDetail";
 import { ProductSkeleton } from "../skeleton/ProductSkeleton";
 import { useFavorites, useProducts, useRecentProducts } from "../../hooks";
 
-const ProductList = ({ data, isChatAI = false }) => {
+const ProductsList = ({ data, isChatAI = false }) => {
   const { isFavorite, toggleFavorite } = useFavorites();
   const { loading } = useProducts();
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -113,4 +113,4 @@ const ItemProduct = ({ item, isFavorite, toggleFavorite, onViewDetail }) => {
   );
 };
 
-export default ProductList;
+export default ProductsList;

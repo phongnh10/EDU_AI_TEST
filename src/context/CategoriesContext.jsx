@@ -22,7 +22,6 @@ export const CategoriesProvider = ({ children }) => {
         const res = await getCategories.getAll();
         if (res) {
           setCategories([allOption, ...res.data.categories]);
-          setSelected(allOption?._id);
         }
       } catch (error) {
         console.error("Lỗi khi lấy thể loại:", error);
@@ -30,7 +29,7 @@ export const CategoriesProvider = ({ children }) => {
         setLoading(false);
       }
     };
-
+    setSelected(allOption?._id);
     fetchCategories();
   }, []);
 
