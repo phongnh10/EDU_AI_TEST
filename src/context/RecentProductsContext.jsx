@@ -16,7 +16,7 @@ export const RecentProductsProvider = ({ children }) => {
       ].slice(0, 5);
       setRecentProducts(newItems);
       appLocalStorage.saveItem(STORAGE_KEYS.RECENTPRODUCTS, newItems);
-      successNotify("Thêm sản phẩm đã xem gần đây");
+      // successNotify("Thêm sản phẩm đã xem gần đây");
     },
 
     [recentProducts]
