@@ -100,33 +100,35 @@ npm run dev
 
 - Home
   Mobile:
-  ![](./src/assets/readme/home-mobile.png)
-
-Tablet:
-![](./src/assets/readme/home-tablet.png)
-
-Desktop (PC):
-![](./src/assets/readme/home-pc.png)
+  <img src="./src/assets/readme/home-mobile.png" width="250" />
+  Tablet:
+  <img src="./src/assets/readme/home-tablet.png" width="250" />
+  Desktop (PC):
+  <img src="./src/assets/readme/home-pc.png" width="250" />
 
 - Favorites
   Mobile:
-  ![](./src/assets/readme/favorites-mobile.png)
-
-Tablet:
-![](./src/assets/readme/favorites-tablet.png)
-
-Desktop (PC):
-![](./src/assets/readme/favorites-pc.png)
+  <img src="./src/assets/readme/favorites-mobile.png" width="250" />
+  Tablet:
+  <img src="./src/assets/readme/favorites-tablet.png" width="250" />
+  Desktop (PC):
+  <img src="./src/assets/readme/favorites-pc.png" width="250" />
 
 - Chatbox
   Mobile:
-  ![](./src/assets/readme/chatbox-mobile.png)
+  <img src="./src/assets/readme/chatbox-mobile.png" width="250" />
+  Tablet:
+  <img src="./src/assets/readme/chatbox-tablet.png" width="250" />
+  Desktop (PC):
+  <img src="./src/assets/readme/chatbox-pc.png" width="250" />
 
-Tablet:
-![](./src/assets/readme/chatbox-tablet.png)
-
-Desktop (PC):
-![](./src/assets/readme/chatbox-pc.png)
+- modal
+  Mobile:
+  <img src="./src/assets/readme/modal-mobile.png" width="250" />
+  Tablet:
+  <img src="./src/assets/readme/modal-tablet.png" width="250" />
+  Desktop (PC):
+  <img src="./src/assets/readme/modal-pc.png" width="250" />
 
 ## Tác giả
 
