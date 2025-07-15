@@ -92,9 +92,7 @@ npm run dev
 
 - Tích hợp AI thật để tư vấn sản phẩm thông minh
 - Phân quyền user/admin
-- Thêm chức năng đánh giá, bình luận sản phẩm
-- Tối ưu performance
-- Viết unit test bằng Jest hoặc Vitest
+- Thêm chức năng đánh giá, bình luận sản phẩm...
 
 ## Hình ảnh
 
