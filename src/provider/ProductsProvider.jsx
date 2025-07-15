@@ -1,29 +1,32 @@
 import { useCallback, useEffect, useState } from "react";
-import { getProducts } from "../api/productApi";
 import { ProductsContext } from "../context/ProductsContext";
+import { productsApi } from "../api/productsApi";
+import { useAuth } from "../hooks/useAuth";
 
 export const ProductsProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [originalProducts, setOriginalProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const { token } = useAuth();
 
   useEffect(() => {
     const fetchProducts = async () => {
       setLoading(true);
       try {
-        const res = await getProducts.getAll();
-        const data = res?.data?.data || [];
-        setOriginalProducts(data);
-        setProducts(data);
+        const res = await productsApi.getAll();
+        if (res) {
+          setOriginalProducts(res?.data?.data);
+          setProducts(res?.data?.data);
+        }
       } catch (error) {
-        console.error("Lỗi khi lấy sản phẩm:", error);
+        console.log("Lỗi khi lấy sản phẩm:", error);
       } finally {
         setLoading(false);
       }
     };
 
     fetchProducts();
-  }, []);
+  }, [token]);
 
   const filterProducts = useCallback(
     (filters = {}) => {

@@ -1,5 +1,5 @@
 import axiosClient from "./axiosClient";
 
-export const getProducts = {
+export const productsApi = {
   getAll: () => axiosClient.get("/product/list"),
 };

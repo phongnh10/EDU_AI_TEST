@@ -11,6 +11,8 @@ function Home() {
   const [keyWord, setKeyword] = useState();
   const [value, setValue] = useState();
 
+  console.log("products", JSON.stringify(products, null, 2));
+
   useEffect(() => {
     if (selected) {
       filterProducts({ category: selected, name: keyWord, price: value });

@@ -1,4 +1,5 @@
 import axiosClient from "./axiosClient";
-export const getCategories = {
+
+export const categoriesApi = {
   getAll: () => axiosClient.get("/category/list"),
 };

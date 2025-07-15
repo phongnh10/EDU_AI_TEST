@@ -13,34 +13,36 @@ const ProductsList = ({ data, isChatAI = false }) => {
 
   if (loading) return <ProductSkeleton />;
 
+  if (!data || (data.length === 0 && !loading))
+    return (
+      <div className="flex flex-1 justify-center items-center">
+        <span className="text-lg text-accent">Không có sản phẩm nào!</span>
+      </div>
+    );
+
   return (
     <div className="p-4 mt-4 min-h-full">
-      {data && data.length > 0 ? (
-        <div
-          className={
-            isChatAI
-              ? "grid grid-cols-1 gap-4"
-              : "grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
-          }
-        >
-          {data.map((item) => (
-            <ItemProduct
-              key={item._id}
-              item={item}
-              isFavorite={isFavorite}
-              toggleFavorite={toggleFavorite}
-              onViewDetail={() => {
-                setSelectedProduct(item);
-                addRecentProduct(item);
-              }}
-            />
-          ))}
-        </div>
-      ) : (
-        <div className="flex flex-1 justify-center items-center">
-          <span className="text-lg text-accent">Không có sản phẩm nào!</span>
-        </div>
-      )}
+      <div
+        className={
+          isChatAI
+            ? "grid grid-cols-1 gap-4"
+            : "grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
+        }
+      >
+        {data.map((item) => (
+          <ItemProduct
+            key={item._id}
+            item={item}
+            isFavorite={isFavorite}
+            toggleFavorite={toggleFavorite}
+            onViewDetail={() => {
+              setSelectedProduct(item);
+              addRecentProduct(item);
+            }}
+          />
+        ))}
+      </div>
+
       {selectedProduct && (
         <ModelProductDetail
           product={selectedProduct}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { getCategories } from "../api/categoryApi";
 import { CategoriesContext } from "../context/CategoriesContext";
+import { categoriesApi } from "../api/categoriesApi";
+import { useAuth } from "../hooks/useAuth";
 
 const allOption = {
   _id: "all",
@@ -18,7 +19,7 @@ export const CategoriesProvider = ({ children }) => {
     const fetchCategories = async () => {
       setLoading(true);
       try {
-        const res = await getCategories.getAll();
+        const res = await categoriesApi.getAll();
         if (res) {
           setCategories([allOption, ...res.data.categories]);
         }

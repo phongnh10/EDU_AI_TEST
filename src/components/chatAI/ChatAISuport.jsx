@@ -5,6 +5,7 @@ import ChatMessages from "./components/ChatMessages";
 import ChatSuggestions from "./components/ChatSuggestions";
 import ChatInput from "./components/ChatInput";
 import { useFavorites, useRecentProducts } from "../../hooks";
+import { aiApi } from "../../api/aiApi";
 
 export function ChatAISuport() {
   const [open, setOpen] = useState(false);
@@ -28,15 +29,17 @@ export function ChatAISuport() {
     { id: 3, text: "Gợi ý sản phẩm phù hợp" },
   ];
 
-  const handleSend = () => {
+  const handleSend = async () => {
     const text = input.trim();
     if (!text) return;
 
     const userMessage = { type: "text", from: "user", text };
+    setMessages((prev) => [...prev, userMessage]);
+    setInput("");
 
     let botMessages = [];
 
-    if (text.includes("xem")) {
+    if (text.includes("xem gần đây")) {
       botMessages = [
         { type: "products", data: recentProducts },
         {
@@ -70,17 +73,31 @@ export function ChatAISuport() {
         },
       ];
     } else {
-      botMessages = [
-        {
-          type: "text",
-          from: "bot",
-          text: "Cảm ơn bạn đã hỏi! Hiện tại tôi chưa được kết nối với AI thật.",
-        },
-      ];
+      try {
+        // Giả lập api
+        const response = await aiApi.getProductsByMessage(text);
+        const reply = response.data.reply || "Tôi chưa có câu trả lời phù hợp.";
+
+        botMessages = [
+          {
+            type: "text",
+            from: "bot",
+            text: reply,
+          },
+        ];
+      } catch (error) {
+        console.log("Lỗi khi gọi API AI:", error);
+        botMessages = [
+          {
+            type: "text",
+            from: "bot",
+            text: "Xin lỗi, hiện không thể kết nối đến hệ thống gợi ý.",
+          },
+        ];
+      }
     }
 
-    setMessages((prev) => [...prev, userMessage, ...botMessages]);
-    setInput("");
+    setMessages((prev) => [...prev, ...botMessages]);
   };
 
   const handleSuggestionClick = (s) => {

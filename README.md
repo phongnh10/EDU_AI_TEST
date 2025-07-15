@@ -40,6 +40,8 @@ src/
   - `/products`: Lấy danh sách sản phẩm
   - `/categories`: Lấy danh mục sản phẩm
   - `/auth/login`: đăng nhập
+  - `/ai/suggestions	`: API gợi ý sản phẩm (fake AI)
+    > Gửi prompt từ người dùng, trả về phản hồi mô phỏng AI.
 
 ---
 
@@ -93,9 +95,6 @@ npm run dev
 - Thêm chức năng đánh giá, bình luận sản phẩm
 - Tối ưu performance
 - Viết unit test bằng Jest hoặc Vitest
-- Đóng góp
-
-Rất hoan nghênh mọi đóng góp! Hãy tạo issue hoặc gửi pull request để cải thiện dự án.
 
 ## Hình ảnh
 
