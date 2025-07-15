@@ -100,41 +100,77 @@ npm run dev
 
 ### Home
 
-<div style="display: flex; gap: 12px;">
-  <img src="./src/assets/readme/home-mobile.png" width="250" />
-  <img src="./src/assets/readme/home-tablet.png" width="250" />
-  <img src="./src/assets/readme/home-pc.png" width="250" />
+<div style="display: flex; justify-content: center; gap: 20px; text-align: center;">
+  <div>
+    <strong>Mobile</strong><br />
+    <img src="./src/assets/readme/home-mobile.png" width="200" />
+  </div>
+  <div>
+    <strong>Tablet</strong><br />
+    <img src="./src/assets/readme/home-tablet.png" width="250" />
+  </div>
+  <div>
+    <strong>PC</strong><br />
+    <img src="./src/assets/readme/home-pc.png" width="300" />
+  </div>
 </div>
 
 ---
 
 ### Favorites
 
-<div style="display: flex; gap: 12px;">
-  <img src="./src/assets/readme/favorites-mobile.png" width="250" />
-  <img src="./src/assets/readme/favorites-tablet.png" width="250" />
-  <img src="./src/assets/readme/favorites-pc.png" width="250" />
-</div>
+  <div style="display: flex; justify-content: center; gap: 20px; text-align: center;">
+    <div>
+      <strong>Mobile</strong><br />
+      <img src="./src/assets/readme/favorites-mobile.png" width="200" />
+    </div>
+    <div>
+      <strong>Tablet</strong><br />
+      <img src="./src/assets/readme/favorites-tablet.png" width="250" />
+    </div>
+    <div>
+      <strong>PC</strong><br />
+      <img src="./src/assets/readme/favorites-pc.png" width="300" />
+    </div>
+  </div>
 
 ---
 
 ### Chatbox
 
-<div style="display: flex; gap: 12px;">
-  <img src="./src/assets/readme/chatbox-mobile.png" width="250" />
-  <img src="./src/assets/readme/chatbox-tablet.png" width="250" />
-  <img src="./src/assets/readme/chatbox-pc.png" width="250" />
-</div>
+  <div style="display: flex; justify-content: center; gap: 20px; text-align: center;">
+    <div>
+      <strong>Mobile</strong><br />
+      <img src="./src/assets/readme/chatbox-mobile.png" width="200" />
+    </div>
+    <div>
+      <strong>Tablet</strong><br />
+      <img src="./src/assets/readme/chatbox-tablet.png" width="250" />
+    </div>
+    <div>
+      <strong>PC</strong><br />
+      <img src="./src/assets/readme/chatbox-pc.png" width="300" />
+    </div>
+  </div>
 
 ---
 
 ### Modal
 
-<div style="display: flex; gap: 12px;">
-  <img src="./src/assets/readme/modal-mobile.png" width="250" />
-  <img src="./src/assets/readme/modal-tablet.png" width="250" />
-  <img src="./src/assets/readme/modal-pc.png" width="250" />
-</div>
+  <div style="display: flex; justify-content: center; gap: 20px; text-align: center;">
+    <div>
+      <strong>Mobile</strong><br />
+      <img src="./src/assets/readme/modal-mobile.png" width="200" />
+    </div>
+    <div>
+      <strong>Tablet</strong><br />
+      <img src="./src/assets/readme/modal-tablet.png" width="250" />
+    </div>
+    <div>
+      <strong>PC</strong><br />
+      <img src="./src/assets/readme/modal-pc.png" width="300" />
+    </div>
+  </div>
 
 ## Tác giả
 
