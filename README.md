@@ -98,37 +98,43 @@ npm run dev
 
 ## Hình ảnh
 
-- Home
-  Mobile:
+### Home
+
+<div style="display: flex; gap: 12px;">
   <img src="./src/assets/readme/home-mobile.png" width="250" />
-  Tablet:
   <img src="./src/assets/readme/home-tablet.png" width="250" />
-  Desktop (PC):
   <img src="./src/assets/readme/home-pc.png" width="250" />
+</div>
 
-- Favorites
-  Mobile:
+---
+
+### Favorites
+
+<div style="display: flex; gap: 12px;">
   <img src="./src/assets/readme/favorites-mobile.png" width="250" />
-  Tablet:
   <img src="./src/assets/readme/favorites-tablet.png" width="250" />
-  Desktop (PC):
   <img src="./src/assets/readme/favorites-pc.png" width="250" />
+</div>
 
-- Chatbox
-  Mobile:
+---
+
+### Chatbox
+
+<div style="display: flex; gap: 12px;">
   <img src="./src/assets/readme/chatbox-mobile.png" width="250" />
-  Tablet:
   <img src="./src/assets/readme/chatbox-tablet.png" width="250" />
-  Desktop (PC):
   <img src="./src/assets/readme/chatbox-pc.png" width="250" />
+</div>
 
-- modal
-  Mobile:
+---
+
+### Modal
+
+<div style="display: flex; gap: 12px;">
   <img src="./src/assets/readme/modal-mobile.png" width="250" />
-  Tablet:
   <img src="./src/assets/readme/modal-tablet.png" width="250" />
-  Desktop (PC):
   <img src="./src/assets/readme/modal-pc.png" width="250" />
+</div>
 
 ## Tác giả
 
